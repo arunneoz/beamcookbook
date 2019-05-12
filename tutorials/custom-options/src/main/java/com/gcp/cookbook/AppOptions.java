@@ -8,7 +8,7 @@ import org.apache.beam.sdk.options.ValueProvider;
 public interface AppOptions extends GcpOptions
 {
     @Description("Filter Pattern")
-    @Default.String("World")
-    ValueProvider<String> getFilterPattern();
-    void setFilterPattern(ValueProvider<String> value);
+    @Default.Integer(5)
+    ValueProvider<Integer> getFilterPattern();
+    void setFilterPattern(ValueProvider<Integer> value);
 }

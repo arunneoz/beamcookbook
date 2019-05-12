@@ -15,56 +15,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.gcp.cookbook.beam.recipes.tutorials.simpleFilter.src.main.java.com.gcp.cookbook.beam.recipes.tutorials.simple_filter;
+package com.gcp.cookbook;
 
 import main.java.com.gcp.cookbook.AppOptions;
 import org.apache.beam.sdk.Pipeline;
 import org.apache.beam.sdk.options.PipelineOptionsFactory;
 import org.apache.beam.sdk.transforms.Create;
 import org.apache.beam.sdk.transforms.DoFn;
-import org.apache.beam.sdk.transforms.MapElements;
+import org.apache.beam.sdk.transforms.Filter;
 import org.apache.beam.sdk.transforms.ParDo;
-import org.apache.beam.sdk.transforms.SimpleFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * A starter example for writing Beam programs.
+ * An example for writing a pipeline with a custom runtime option and a filter method
  *
- * <p>The example takes two strings, converts them to their upper-case
- * representation and logs them.
- *
- * <p>To run this starter example locally using DirectRunner, just
- * execute it without any additional parameters from your favorite development
- * environment.
- *
- * <p>To run this starter example using managed resource in Google Cloud
- * Platform, you should specify the following command-line options:
- *   --project=<YOUR_PROJECT_ID>
- *   --stagingLocation=<STAGING_LOCATION_IN_CLOUD_STORAGE>
- *   --runner=DataflowRunner
- */
+ * <p>The example takes a filter and outputs all numbers greater then the filter
+ **/
 public class StarterPipeline {
-  private static final Logger LOG = LoggerFactory.getLogger(StarterPipeline.class);
+    private static final Logger LOG = LoggerFactory.getLogger(StarterPipeline.class);
 
-  public static void main(String[] args) {
-    Pipeline p = Pipeline.create(
-        PipelineOptionsFactory.fromArgs(args).withValidation().create());
+    public static void main(String[] args) {
+        AppOptions appOptions = PipelineOptionsFactory.fromArgs(args).as(AppOptions.class);
+        Pipeline p = Pipeline.create(appOptions);
 
-    p.apply(Create.of("Hello", "World"))
-    .apply(MapElements.via(new SimpleFunction<String, String>() {
-      @Override
-      public String apply(String input) {
-        return input.toUpperCase();
-      }
-    }))
-    .apply(ParDo.of(new DoFn<String, Void>() {
-      @ProcessElement
-      public void processElement(ProcessContext c)  {
-        LOG.info(c.element());
-      }
-    }));
+        p.apply(Create.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
 
-    p.run();
-  }
+            .apply(Filter.greaterThan(appOptions.getFilterPattern().get()))
+
+            .apply(ParDo.of(new DoFn<Integer, Void>() {
+                @ProcessElement
+                public void processElement(ProcessContext c) {
+                    LOG.info(c.element().toString());
+                }
+            }));
+
+        p.run();
+    }
 }

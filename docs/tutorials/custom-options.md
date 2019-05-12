@@ -8,54 +8,51 @@ cd tutorials/custom-options
 
 ## Understand Code
 
-### Open 
-<walkthrough-editor-open-file 
-filePath="/beamcookbook/tutorials/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java">src/main/java/com/gcp/cookbook/getting-started/StarterPipeline.java</walkthrough-editor-open-file>
+### Custom options class
+To begin, let's look at a customs Options class.
 
+Open <walkthrough-editor-open-file 
+filePath="/beamcookbook/tutorials/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java">src/main/java/com/gcp/cookbook/custom-options/AppOptions.java</walkthrough-editor-open-file>
 
-### Explain Pipeline
-To begin, let's look at the pipline main method. 
 
 - <walkthrough-editor-select-line
-filePath="/beamcookbook/tutorials/getting-started/src/main/java/com/gcp/cookbook/getting-started/StarterPipeline.java"
-startLine="49" startCharacterOffset="4" 
-endLine="51" endCharacterOffset="52">line 50</walkthrough-editor-select-line>
-Initializes the Pipeline with default options
+filePath="/beamcookbook/tutorials/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java"
+startLine="9" startCharacterOffset="0" 
+endLine="12" endCharacterOffset="80">line 10-13</walkthrough-editor-select-line>
+A default getter and setter for runtime argument.
+```(--filterPattern=5)```
 
-We are going to change this to support runtime arguments
 
 
-### Create options class
-```bash
-cd src/main/java/com/gcp/cookbook/
-```
+*Explain Pipeline*
+Now let's look at the pipeline main method. 
 
-*Create File "AppOptions.java"*
-```
-package main.java.com.gcp.cookbook;
+Open <walkthrough-editor-open-file 
+filePath="/beamcookbook/tutorials/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java">src/main/java/com/gcp/cookbook/getting-started/StarterPipeline.java</walkthrough-editor-open-file>
 
-import org.apache.beam.sdk.extensions.gcp.options.GcpOptions;
-import org.apache.beam.sdk.options.Default;
-import org.apache.beam.sdk.options.Description;
-import org.apache.beam.sdk.options.ValueProvider;
+- <walkthrough-editor-select-line
+filePath="/beamcookbook/tutorials/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java"
+startLine="38" startCharacterOffset="0" 
+endLine="39" endCharacterOffset="80">line 50:</walkthrough-editor-select-line>
+Initializes the Pipeline with default options.
 
-public interface AppOptions extends GcpOptions
-{
-    @Description("Filter Pattern")
-    @Default.String("World")
-    ValueProvider<String> getFilterPattern();
-    void setFilterPattern(ValueProvider<String> value);
-}
-```
+- <walkthrough-editor-select-line
+filePath="/beamcookbook/tutorials/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java"
+startLine="41" startCharacterOffset="0" 
+endLine="41" endCharacterOffset="80">line 42:</walkthrough-editor-select-line>
+Populate the pipeline with a list of Integers.
 
-Replace <walkthrough-editor-select-line
-filePath="/beamcookbook/tutorials/getting-started/src/main/java/com/gcp/cookbook/getting-started/StarterPipeline.java"
-startLine="49" startCharacterOffset="4" 
-endLine="51" endCharacterOffset="52">line 50 & 51</walkthrough-editor-select-line> with this line
-```
-Pipeline p = Pipeline.create(PipelineOptionsFactory.fromArgs(args).as(AppOptions.class));
-```
+- <walkthrough-editor-select-line
+filePath="/beamcookbook/tutorials/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java"
+startLine="43" startCharacterOffset="0" 
+endLine="43" endCharacterOffset="80">line 44:</walkthrough-editor-select-line>
+Filter out all numbers smaller then the filterPattern.
 
+- <walkthrough-editor-select-line
+filePath="/beamcookbook/tutorials/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java"
+startLine="45" startCharacterOffset="0" 
+endLine="50" endCharacterOffset="80">line 46:</walkthrough-editor-select-line>
+Output the integers that passed the filter.
 
 ## Run Pipeline
 
