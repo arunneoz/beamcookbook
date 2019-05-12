@@ -25,10 +25,8 @@ cd getting-started/
 ```
 - Open ```src/main/java/com/gcp/cookbook/getting-started/StarterPipeline.java```
 
+<walkthrough-editor-open-file filePath="./src/main/java/com/gcp/cookbook/getting-started/StarterPipeline.java" text="Open StarterPipeline.java"></walkthrough-editor-open-file>
 
-<walkthrough-editor-open-file filePath="src/main/java/com/gcp/cookbook/getting-started/StarterPipeline.java" text="Open StarterPipeline.java"></walkthrough-editor-open-file>
-
-<walkthrough-conclusion-trophy></walkthrough-conclusion-trophy>
 
 ## Run Pipeline
 
