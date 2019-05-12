@@ -17,6 +17,7 @@
  */
 package com.gcp.cookbook.beam.recipes.tutorials.simpleFilter.src.main.java.com.gcp.cookbook.beam.recipes.tutorials.simple_filter;
 
+import main.java.com.gcp.cookbook.AppOptions;
 import org.apache.beam.sdk.Pipeline;
 import org.apache.beam.sdk.options.PipelineOptionsFactory;
 import org.apache.beam.sdk.transforms.Create;
