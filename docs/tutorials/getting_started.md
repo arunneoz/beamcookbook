@@ -24,11 +24,8 @@ mvn archetype:generate \
 cd getting-started/
 ```
 ### Open 
-```src/main/java/com/gcp/cookbook/getting-started/StarterPipeline.java```
-
 <walkthrough-editor-open-file 
-filePath="/beamcookbook/tutorials/getting-started/src/main/java/com/gcp/cookbook/getting-started/StarterPipeline.java" 
-text="Click to Open StarterPipeline.java">open</walkthrough-editor-open-file>
+filePath="/beamcookbook/tutorials/getting-started/src/main/java/com/gcp/cookbook/getting-started/StarterPipeline.java">src/main/java/com/gcp/cookbook/getting-started/StarterPipeline.java</walkthrough-editor-open-file>
 
 
 ### Explain Pipeline
