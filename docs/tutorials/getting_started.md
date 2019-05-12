@@ -1,6 +1,10 @@
 # Getting Started
 
 ## Setup Project
+CD into root folder
+```bash
+cd tutorials
+```
 
 ## Execute Maven
 ```bash
@@ -16,6 +20,7 @@ mvn archetype:generate \
 ```
 
 ## Understand Code
+- Open ```GettingStarted.java```
 
 ## Run Pipeline
 
