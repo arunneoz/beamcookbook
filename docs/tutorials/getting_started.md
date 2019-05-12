@@ -1,4 +1,4 @@
-# Getting Started
+# Getting Started Tutorial
 
 ## Setup Project
 CD into root folder
@@ -15,12 +15,15 @@ mvn archetype:generate \
      -Dversion="0.1" \
      -DgroupId=com.gcp.cookbook.beam.recipes \
      -DartifactId=getting-started \
-     -Dpackage=com.gcp.cookbook.beam.recipes.tutorials.getting-started \
+     -Dpackage=com.gcp.cookbook.getting-started \
      -DinteractiveMode=false
 ```
 
 ## Understand Code
-- Open ```GettingStarted.java```
+```bash
+cd getting-started/
+```
+- Open ```src/java/com/gcp/cookbook/getting-started/GettingStarted.java```
 
 ## Run Pipeline
 
