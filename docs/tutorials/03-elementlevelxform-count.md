@@ -12,7 +12,7 @@ cd tutorials/03-elementlevelxform-count
 To begin, let's look at a customs Options class.
 
 Open <walkthrough-editor-open-file 
-filePath="/beamcookbook/tutorials/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java">src/main/java/com/gcp/cookbook/custom-options/AppOptions.java</walkthrough-editor-open-file>
+filePath="/beamcookbook/tutorials/03-elementlevelxform-count/src/main/java/com/gcp/cookbook/AppOptions.java">src/main/java/com/gcp/cookbook/03-elementlevelxform-count/AppOptions.java</walkthrough-editor-open-file>
 
 
 - <walkthrough-editor-select-line
@@ -32,39 +32,39 @@ filePath="/beamcookbook/tutorials/03-elementlevelxform-count/src/main/java/com/g
 
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/03-elementlevelxform-count/src/main/java/com/gcp/cookbook/CountPipeline.java"
-startLine="38" startCharacterOffset="0"
-endLine="39" endCharacterOffset="80">line 50:</walkthrough-editor-select-line>
+startLine="41" startCharacterOffset="0"
+endLine="42" endCharacterOffset="80">line 50:</walkthrough-editor-select-line>
 Initializes the Pipeline with default options.
 
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/03-elementlevelxform-count/src/main/java/com/gcp/cookbook/CountPipeline.java"
-startLine="44" startCharacterOffset="0"
-endLine="44" endCharacterOffset="110">line 42:</walkthrough-editor-select-line>
+startLine="46" startCharacterOffset="0"
+endLine="46" endCharacterOffset="110">line 42:</walkthrough-editor-select-line>
 Get the Count Choice option
 
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/03-elementlevelxform-count/src/main/java/com/gcp/cookbook/CountPipeline.java"
-startLine="48" startCharacterOffset="0"
-endLine="49" endCharacterOffset="110">line 49:</walkthrough-editor-select-line>
+startLine="50" startCharacterOffset="0"
+endLine="52" endCharacterOffset="110">line 49:</walkthrough-editor-select-line>
 Populate the pipeline with a list of Integers and use the Count method to calculate the Count globally
 
 - <walkthrough-editor-select-line
-filePath="/beamcookbook/tutorials/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java"
-startLine="50" startCharacterOffset="0"
-endLine="56" endCharacterOffset="80">line 46:</walkthrough-editor-select-line>
+filePath="/beamcookbook/tutorials/03-elementlevelxform-count/src/main/java/com/gcp/cookbook/CountPipeline.java"
+startLine="53" startCharacterOffset="0"
+endLine="57" endCharacterOffset="80">line 46:</walkthrough-editor-select-line>
 Output the count.
 
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/03-elementlevelxform-count/src/main/java/com/gcp/cookbook/CountPipeline.java"
-startLine="64" startCharacterOffset="0"
-endLine="67" endCharacterOffset="110">line 46:</walkthrough-editor-select-line>
+startLine="66" startCharacterOffset="0"
+endLine="69" endCharacterOffset="110">line 46:</walkthrough-editor-select-line>
 Populate the pipeline with a list of Integers and use the Count method to calculate the Count per Element Category
 
 
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java"
-startLine="69" startCharacterOffset="0"
-endLine="78" endCharacterOffset="80">line 46:</walkthrough-editor-select-line>
+startLine="75" startCharacterOffset="0"
+endLine="80" endCharacterOffset="80">line 46:</walkthrough-editor-select-line>
 Output the count.
 
 ## Run Pipeline

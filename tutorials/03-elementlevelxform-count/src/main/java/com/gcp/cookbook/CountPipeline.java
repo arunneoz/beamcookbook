@@ -38,7 +38,7 @@ public class CountPipeline {
     private static final Logger LOG = LoggerFactory.getLogger(CountPipeline.class);
 
     public static void main(String[] args) {
-        AppOptions appOptions = PipelineOptionsFactory.fromArgs(args).as(AppOptions.class);
+        AppOptions appOptions = PipelineOptionsFactory.fromArgs(args).withValidation().as(AppOptions.class);
         Pipeline pipeline = Pipeline.create(appOptions);
 
         // This is an example of doing Count operation on a entire Dataset

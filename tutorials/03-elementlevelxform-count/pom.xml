@@ -80,6 +80,12 @@
       <version>${beam.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.beam</groupId>
+      <artifactId>beam-sdks-java-io-google-cloud-platform</artifactId>
+      <version>${beam.version}</version>
+    </dependency>
+
     <!--
       By default, the starter project has a dependency on the Beam DirectRunner
       to enable development and testing of pipelines. To run on another of the
