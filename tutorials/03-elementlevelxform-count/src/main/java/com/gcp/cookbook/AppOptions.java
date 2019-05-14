@@ -7,8 +7,8 @@ import org.apache.beam.sdk.options.ValueProvider;
 
 public interface AppOptions extends GcpOptions
 {
-    @Description("Filter Pattern")
-    @Default.Integer(5)
-    ValueProvider<Integer> getFilterPattern();
-    void setFilterPattern(ValueProvider<Integer> value);
+    @Description("Element by Count ")
+    @Default.Boolean(true)
+    ValueProvider<Boolean> getCountbyChoice();
+    void setCountbyChoice(ValueProvider<Boolean> value);
 }

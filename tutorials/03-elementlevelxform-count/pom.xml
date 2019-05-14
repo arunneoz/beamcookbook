@@ -21,7 +21,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.gcp.cookbook.beam.recipes</groupId>
-  <artifactId>tutorials-simple-filter</artifactId>
+  <artifactId>tutorials-count-operation</artifactId>
   <version>0.1</version>
 
   <properties>

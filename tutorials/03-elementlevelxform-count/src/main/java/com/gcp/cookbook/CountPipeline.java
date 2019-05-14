@@ -28,28 +28,57 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * An example for writing a pipeline with a custom runtime option and a filter method
+ * An example for writing a pipeline with a custom runtime option and a count method
  *
- * <p>The example takes a filter and outputs all numbers greater then the filter
+ * <p>The example shows you how to perform arthimatic operation Count on a dataset
  **/
-public class StarterPipeline {
-    private static final Logger LOG = LoggerFactory.getLogger(StarterPipeline.class);
+public class CountPipeline {
+    private static final Logger LOG = LoggerFactory.getLogger(CountPipeline.class);
 
     public static void main(String[] args) {
         AppOptions appOptions = PipelineOptionsFactory.fromArgs(args).as(AppOptions.class);
         Pipeline p = Pipeline.create(appOptions);
 
-        p.apply(Create.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+        // This is an example of doing Count operation on a entire Dataset
 
-            .apply(Filter.greaterThan(appOptions.getFilterPattern().get()))
+        if(appOptions.getCountbyChoice().get())
 
-            .apply(ParDo.of(new DoFn<Integer, Void>() {
+        {
+
+            PCollection<Integer> numbersCollection = pipeline.apply(Create.of(Arrays.asList(1, 2, 3)));
+
+            PCollection<Long> allItemsCount = numbersCollection.apply(Count.globally());
+            allItemsCount.apply(ParDo.of(new DoFn<Long, Void>() {
                 @ProcessElement
                 public void processElement(ProcessContext c) {
                     LOG.info(c.element().toString());
                 }
             }));
 
-        p.run();
+        }
+
+        else {
+
+            // This is an example of doing Count operation per element Category
+
+            PCollection<String> dataCollection = pipeline.apply(Create.of(Arrays.asList("787", "737", "777", "737", "737",
+                    "777", "737")));
+
+            PCollection<KV<String, Long>> perElementCount = dataCollection.apply(Count.<String>perElement());
+
+            perElementCount.apply(ParDo.of(new DoFn<KV<String, Long>, Void>() {
+                // @Override
+
+                @ProcessElement
+                public void processElement(ProcessContext c) {
+                    LOG.info(c.element().getKey() + ":" + c.element().getValue());
+                }
+
+
+            }));
+        }
+
+        //PAssert.that(allItemsCount).containsInAnyOrder(3L);
+        p.run().waitUntilFinish();
     }
 }
