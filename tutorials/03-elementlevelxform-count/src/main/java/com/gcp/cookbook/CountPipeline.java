@@ -17,15 +17,17 @@
  */
 package com.gcp.cookbook;
 
-import main.java.com.gcp.cookbook.AppOptions;
+import com.gcp.cookbook.AppOptions;
 import org.apache.beam.sdk.Pipeline;
 import org.apache.beam.sdk.options.PipelineOptionsFactory;
-import org.apache.beam.sdk.transforms.Create;
-import org.apache.beam.sdk.transforms.DoFn;
-import org.apache.beam.sdk.transforms.Filter;
-import org.apache.beam.sdk.transforms.ParDo;
+import org.apache.beam.sdk.transforms.*;
+import org.apache.beam.sdk.values.KV;
+import org.apache.beam.sdk.values.PCollection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Arrays;
+
 
 /**
  * An example for writing a pipeline with a custom runtime option and a count method
@@ -37,7 +39,7 @@ public class CountPipeline {
 
     public static void main(String[] args) {
         AppOptions appOptions = PipelineOptionsFactory.fromArgs(args).as(AppOptions.class);
-        Pipeline p = Pipeline.create(appOptions);
+        Pipeline pipeline = Pipeline.create(appOptions);
 
         // This is an example of doing Count operation on a entire Dataset
 
@@ -79,6 +81,6 @@ public class CountPipeline {
         }
 
         //PAssert.that(allItemsCount).containsInAnyOrder(3L);
-        p.run().waitUntilFinish();
+        pipeline.run().waitUntilFinish();
     }
 }

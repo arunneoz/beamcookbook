@@ -20,7 +20,7 @@ filePath="/beamcookbook/tutorials/03-elementlevelxform-count/src/main/java/com/g
 startLine="9" startCharacterOffset="0" 
 endLine="12" endCharacterOffset="80">line 10-13</walkthrough-editor-select-line>
 A default getter and setter for runtime argument.
-```(--countbyElement=true)```
+```(----countbyChoice=false)```
 
 
 
@@ -69,10 +69,9 @@ Output the count.
 
 ## Run Pipeline
 
-## Execute Maven
 ```bash
 mvn compile exec:java -Dexec.mainClass=com.gcp.cookbook.CountPipeline \
-     -Dexec.args="--inputFile=pom.xml --countbyElement=true --runner=DirectRunner"
+     -Dexec.args="--inputFile=pom.xml --countbyChoice=false=true --runner=DirectRunner"
 ```
 
     
