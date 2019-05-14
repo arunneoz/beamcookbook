@@ -71,7 +71,7 @@ Output the count.
 
 ```bash
 mvn compile exec:java -Dexec.mainClass=com.gcp.cookbook.CountPipeline \
-     -Dexec.args="--countbyChoice=false=true --runner=DirectRunner"
+     -Dexec.args="--countbyChoice=false --runner=DirectRunner"
 ```
 
     
