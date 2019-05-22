@@ -58,6 +58,7 @@ void setMinimumValue(Integer value);
 
 
 **Pipeline Class**
+
 This class defines the Apache Beam pipeline DAG, it also contains the Java Main method. 
 
 Open <walkthrough-editor-open-file filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java">StarterPipeline.java</walkthrough-editor-open-file>
