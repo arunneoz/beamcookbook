@@ -1,1 +1,0 @@
-## Default documentation home page
