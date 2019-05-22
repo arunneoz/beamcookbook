@@ -17,7 +17,6 @@
  */
 package com.gcp.cookbook;
 
-import main.java.com.gcp.cookbook.AppOptions;
 import org.apache.beam.sdk.Pipeline;
 import org.apache.beam.sdk.options.PipelineOptionsFactory;
 import org.apache.beam.sdk.transforms.Create;
@@ -36,17 +35,19 @@ public class StarterPipeline {
     private static final Logger LOG = LoggerFactory.getLogger(StarterPipeline.class);
 
     public static void main(String[] args) {
-        AppOptions appOptions = PipelineOptionsFactory.fromArgs(args).as(AppOptions.class);
+        AppOptions appOptions = PipelineOptionsFactory.fromArgs(args).as(com.gcp.cookbook.AppOptions.class);
         Pipeline p = Pipeline.create(appOptions);
 
         p.apply(Create.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
 
-            .apply(Filter.greaterThan(appOptions.getFilterPattern().get()))
+            .apply(Filter.greaterThan(appOptions.getMinimumValue()))
 
-            .apply(ParDo.of(new DoFn<Integer, Void>() {
+            .apply(ParDo.of(new DoFn<Integer, Integer>() {
                 @ProcessElement
                 public void processElement(ProcessContext c) {
                     LOG.info(c.element().toString());
+                    //return the value
+                    c.output(c.element());
                 }
             }));
 

@@ -1,14 +1,13 @@
-package main.java.com.gcp.cookbook;
+package com.gcp.cookbook;
 
-import org.apache.beam.sdk.extensions.gcp.options.GcpOptions;
 import org.apache.beam.sdk.options.Default;
 import org.apache.beam.sdk.options.Description;
-import org.apache.beam.sdk.options.ValueProvider;
+import org.apache.beam.sdk.options.PipelineOptions;
 
-public interface AppOptions extends GcpOptions
+public interface AppOptions extends PipelineOptions
 {
-    @Description("Filter Pattern")
+    @Description("Minimum Value")
     @Default.Integer(5)
-    ValueProvider<Integer> getFilterPattern();
-    void setFilterPattern(ValueProvider<Integer> value);
+    Integer getMinimumValue();
+    void setMinimumValue(Integer value);
 }
