@@ -1,0 +1,104 @@
+# Getting Started Tutorial
+Often with DataFlow you will need to define custom inputs when you run the workflow. This example will define a custom option class that we will use to store the runtime variables we need while defining our pipeline. 
+
+**Lauch Cloud Shell Tutorial**
+```bash
+cloudshell launch-tutorial docs/java/tutorials/custom-options.md
+```
+
+## Open Project
+CD into tutorial folders
+```bash
+cd tutorials/java/custom-options
+```
+
+
+## Understand The Code
+
+**AppOptions Class**
+
+Open <walkthrough-editor-open-file filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java">AppOptions.java</walkthrough-editor-open-file>
+
+This class has one runtime value, with a default. When you invoke the pipeline you will use this argument
+```(--minimumValue=5)```
+
+
+- <walkthrough-editor-select-line
+filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java"
+startLine="9" startCharacterOffset="0" 
+endLine="9" endCharacterOffset="80">line 9</walkthrough-editor-select-line>
+Description of the property
+
+- <walkthrough-editor-select-line
+filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java"
+startLine="10" startCharacterOffset="0" 
+endLine="10" endCharacterOffset="80">line 10</walkthrough-editor-select-line>
+Default value, if this is not set the property is required.
+
+- <walkthrough-editor-select-line
+filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java"
+startLine="11" startCharacterOffset="0" 
+endLine="12" endCharacterOffset="80">line 11-12</walkthrough-editor-select-line>
+Getter and Setter methods for the property. 
+
+
+
+**Pipeline Class**
+This class defines the Apache Beam pipeline DAG, it also contains the Java Main method. 
+
+Open <walkthrough-editor-open-file filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java">StarterPipeline.java</walkthrough-editor-open-file>
+
+- <walkthrough-editor-select-line
+filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java"
+startLine="38" startCharacterOffset="0" 
+endLine="39" endCharacterOffset="80">line 50:</walkthrough-editor-select-line>
+Initializes the Pipeline with our custom AppOptions class. Now we can use the getter methods as needed.
+
+- <walkthrough-editor-select-line
+filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java"
+startLine="41" startCharacterOffset="0" 
+endLine="41" endCharacterOffset="80">line 42:</walkthrough-editor-select-line>
+Populate the pipeline with a list of Integers, so we have some messages to send through the pipeline.
+
+- <walkthrough-editor-select-line
+filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java"
+startLine="43" startCharacterOffset="0" 
+endLine="43" endCharacterOffset="80">line 44:</walkthrough-editor-select-line>
+Filter out all numbers smaller then the filterPattern.
+
+- <walkthrough-editor-select-line
+filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java"
+startLine="45" startCharacterOffset="0" 
+endLine="50" endCharacterOffset="80">line 46:</walkthrough-editor-select-line>
+Log the integers that passed the filter.
+
+## Run Pipeline
+
+*Run Locally*
+```bash
+mvn compile exec:java \
+    -Dexec.mainClass=com.gcp.cookbook.StarterPipeline \
+    -Dexec.args="--runner=DirectRunner"
+```
+
+*Run with DataFlow*
+```bash
+    export project=<project id>
+```
+```bash
+mvn compile exec:java \
+    -Dexec.mainClass=com.gcp.cookbook.StarterPipeline \
+    -Dexec.args="--runner=DataFlowRunner --project=$project"
+```
+
+*Deploy Template*
+```bash
+    export project=<project id>
+```
+```bash
+mvn compile exec:java \
+    -Dexec.mainClass=com.gcp.cookbook.StarterPipeline \
+    -Dexec.args="--runner=DataFlowRunner --stagingLocation=gs://<gcs bucket>/staging"
+```
+
+    
