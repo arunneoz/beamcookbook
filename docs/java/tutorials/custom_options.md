@@ -21,7 +21,7 @@ Open <walkthrough-editor-open-file filePath="/beamcookbook/tutorials/java/custom
 
 This class has one runtime value, with a default. When you invoke the pipeline you will use this argument
 ```
-(--minimumValue=5)
+--minimumValue=5
 ```
 
 
@@ -34,6 +34,7 @@ Description of the property
 @Description("Minimum Value") 
 ```
 
+
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java"
 startLine="10" startCharacterOffset="0" 
@@ -42,6 +43,7 @@ Default value, if this is not set the property is required.
 ``` 
 @Default.Integer(5) 
 ```
+
 
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java"
@@ -52,6 +54,7 @@ Getter and Setter methods for the property.
 Integer getMinimumValue();
 void setMinimumValue(Integer value);
 ```
+
 
 
 **Pipeline Class**
@@ -69,6 +72,7 @@ AppOptions appOptions = PipelineOptionsFactory.fromArgs(args).as(com.gcp.cookboo
 Pipeline p = Pipeline.create(appOptions);
 ```
 
+
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java"
 startLine="41" startCharacterOffset="0" 
@@ -79,6 +83,7 @@ p.apply(Create.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
 ```
 
 
+
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java"
 startLine="43" startCharacterOffset="0" 
@@ -87,6 +92,7 @@ Filter out all numbers smaller then the filterPattern.
 ```
 .apply(Filter.greaterThan(appOptions.getMinimumValue()))
 ```
+
 
 
 - <walkthrough-editor-select-line
