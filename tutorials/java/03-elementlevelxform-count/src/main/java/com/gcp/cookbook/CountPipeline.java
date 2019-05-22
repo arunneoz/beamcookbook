@@ -44,9 +44,7 @@ public class CountPipeline {
         // This is an example of doing Count operation on a entire Dataset
 
         if(appOptions.getCountbyChoice().get())
-
         {
-
             PCollection<Integer> numbersCollection = pipeline.apply(Create.of(Arrays.asList(1, 2, 3)));
 
             PCollection<Long> allItemsCount = numbersCollection.apply(Count.globally());
@@ -63,24 +61,20 @@ public class CountPipeline {
 
             // This is an example of doing Count operation per element Category
 
-            PCollection<String> dataCollection = pipeline.apply(Create.of(Arrays.asList("787", "737", "777", "737", "737",
-                    "777", "737")));
+            PCollection<String> dataCollection = pipeline.apply(Create.of(Arrays.asList("787", "737", "777", "737", "737", "777", "737")));
 
             PCollection<KV<String, Long>> perElementCount = dataCollection.apply(Count.<String>perElement());
 
             perElementCount.apply(ParDo.of(new DoFn<KV<String, Long>, Void>() {
                 // @Override
-
                 @ProcessElement
                 public void processElement(ProcessContext c) {
                     LOG.info(c.element().getKey() + ":" + c.element().getValue());
                 }
-
-
             }));
         }
 
         //PAssert.that(allItemsCount).containsInAnyOrder(3L);
-        pipeline.run().waitUntilFinish();
+        pipeline.run();
     }
 }
