@@ -23,7 +23,7 @@ This class has one runtime value, with a default. When you invoke the pipeline y
 ```
 --minimumValue=5
 ```
-
+<br/><br/>
 
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java"
@@ -33,7 +33,7 @@ Description of the property
 ``` 
 @Description("Minimum Value") 
 ```
-
+<br/><br/>
 
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java"
@@ -43,7 +43,7 @@ Default value, if this is not set the property is required.
 ``` 
 @Default.Integer(5) 
 ```
-
+<br/><br/>
 
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java"
@@ -54,7 +54,7 @@ Getter and Setter methods for the property.
 Integer getMinimumValue();
 void setMinimumValue(Integer value);
 ```
-
+<br/><br/>
 
 
 **Pipeline Class**
@@ -72,7 +72,7 @@ Initializes the Pipeline with our custom AppOptions class. Now we can use the ge
 AppOptions appOptions = PipelineOptionsFactory.fromArgs(args).as(com.gcp.cookbook.AppOptions.class);
 Pipeline p = Pipeline.create(appOptions);
 ```
-
+<br/><br/>
 
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java"
@@ -82,7 +82,7 @@ Populate the pipeline with a list of Integers, so we have some messages to send 
 ```
 p.apply(Create.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
 ```
-
+<br/><br/>
 
 
 - <walkthrough-editor-select-line
@@ -93,7 +93,7 @@ Filter out all numbers smaller then the filterPattern.
 ```
 .apply(Filter.greaterThan(appOptions.getMinimumValue()))
 ```
-
+<br/><br/>
 
 
 - <walkthrough-editor-select-line
@@ -111,7 +111,7 @@ Log the integers that passed the filter.
     }
 }));
 ```
-
+<br/><br/>
 
 
 ## Run Pipeline
