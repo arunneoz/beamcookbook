@@ -28,19 +28,28 @@ filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cook
 startLine="9" startCharacterOffset="0" 
 endLine="9" endCharacterOffset="80">line 9</walkthrough-editor-select-line>
 Description of the property
+``` 
+@Description("Minimum Value") 
+```
 
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java"
 startLine="10" startCharacterOffset="0" 
 endLine="10" endCharacterOffset="80">line 10</walkthrough-editor-select-line>
 Default value, if this is not set the property is required.
+``` 
+@Default.Integer(5) 
+```
 
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java"
 startLine="11" startCharacterOffset="0" 
 endLine="12" endCharacterOffset="80">line 11-12</walkthrough-editor-select-line>
 Getter and Setter methods for the property. 
-
+```
+Integer getMinimumValue();
+void setMinimumValue(Integer value);
+```
 
 
 **Pipeline Class**
@@ -53,24 +62,48 @@ filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cook
 startLine="38" startCharacterOffset="0" 
 endLine="39" endCharacterOffset="80">line 50:</walkthrough-editor-select-line>
 Initializes the Pipeline with our custom AppOptions class. Now we can use the getter methods as needed.
+```
+AppOptions appOptions = PipelineOptionsFactory.fromArgs(args).as(com.gcp.cookbook.AppOptions.class);
+Pipeline p = Pipeline.create(appOptions);
+```
 
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java"
 startLine="41" startCharacterOffset="0" 
 endLine="41" endCharacterOffset="80">line 42:</walkthrough-editor-select-line>
 Populate the pipeline with a list of Integers, so we have some messages to send through the pipeline.
+```
+p.apply(Create.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+```
+
 
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java"
 startLine="43" startCharacterOffset="0" 
 endLine="43" endCharacterOffset="80">line 44:</walkthrough-editor-select-line>
 Filter out all numbers smaller then the filterPattern.
+```
+.apply(Filter.greaterThan(appOptions.getMinimumValue()))
+```
+
 
 - <walkthrough-editor-select-line
 filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java"
 startLine="45" startCharacterOffset="0" 
 endLine="50" endCharacterOffset="80">line 46:</walkthrough-editor-select-line>
 Log the integers that passed the filter.
+```
+.apply(ParDo.of(new DoFn<Integer, Integer>() {
+    @ProcessElement
+    public void processElement(ProcessContext c) {
+        LOG.info(c.element().toString());
+        //return the value
+        c.output(c.element());
+    }
+}));
+```
+
+
 
 ## Run Pipeline
 
