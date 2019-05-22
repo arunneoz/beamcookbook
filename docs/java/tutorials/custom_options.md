@@ -20,7 +20,9 @@ cd tutorials/java/custom-options
 Open <walkthrough-editor-open-file filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java">AppOptions.java</walkthrough-editor-open-file>
 
 This class has one runtime value, with a default. When you invoke the pipeline you will use this argument
-```(--minimumValue=5)```
+```
+(--minimumValue=5)
+```
 
 
 - <walkthrough-editor-select-line
