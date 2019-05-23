@@ -1,11 +1,11 @@
-(Home)[../index.md]
-
 # Getting Started Tutorial
+[Home](/docs/index.md)
+
 Often with DataFlow you will need to define custom inputs when you run the workflow. This example will define a custom option class that we will use to store the runtime variables we need while defining our pipeline. 
 
 **Lauch Cloud Shell Tutorial**
 ```bash
-cloudshell launch-tutorial docs/java/tutorials/custom-options.md
+cloudshell launch-tutorial docs/java/tutorials/custom_options.md
 ```
 
 ## Open Project

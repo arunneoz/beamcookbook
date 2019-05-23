@@ -1,6 +1,10 @@
-(Home)[../index.md]
+# Getting Started Tutorial 
+[Home](/docs/index.md)
 
-# Getting Started Tutorial
+**Lauch Cloud Shell Tutorial**
+```bash
+cloudshell launch-tutorial docs/java/tutorials/getting_started.md
+```
 
 ## Setup Project
 CD into tutorials folder
