@@ -1,7 +1,6 @@
 @import "{{ site.theme }}";
 
 .toc td{
+    vertical-align:center;
     text-align:center;
-    vertical-align:middle;
-    background-color:yellow;
 }
