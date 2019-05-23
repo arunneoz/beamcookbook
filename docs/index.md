@@ -6,22 +6,28 @@ tbd
 <tr>
     <td>Tutorial</td>
     <td>Documentation</td>
-    <td>Java Code</td>
+    <td>Java Walkthrough</td>
 </tr>
 <tr>
     <td>Getting Started</td>
-    <td>[documentation](docs/java/tutorials/getting_started.md)</td>
-    <td>[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/arunneoz/beamcookbook&tutorial=docs/java/tutorials/getting_started.md)</td>
+    <td><a href="docs/java/tutorials/getting_started.md">Documentation</a></td>
+    <td>
+        <a href="https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/arunneoz/beamcookbook&tutorial=docs/java/tutorials/getting_started.md"><img src="https://gstatic.com/cloudssh/images/open-btn.png"/></a>
+    </td>
 </tr>
 <tr>
     <td>Runtime Arguments</td>
-    <td>[documentation](docs/java/tutorials/custom_options.md)</td>
-    <td>[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/arunneoz/beamcookbook&page=editor&open_in_editor=tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java&tutorial=docs/tutorials/custom_options.md)</td>
+    <td><a href="docs/java/tutorials/custom_options.md">documentation</a></td>
+    <td>
+        <a href="https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/arunneoz/beamcookbook&page=editor&open_in_editor=tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java&tutorial=docs/tutorials/custom_options.md"><img src="https://gstatic.com/cloudssh/images/open-btn.png"/></a>
+    </td>
 </tr>
 <tr>
     <td>Count Operations</td>
-    <td>[documentation](docs/java/tutorials/03-elementlevelxform-count.md)</td>
-    <td>[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/arunneoz/beamcookbook&page=editor&open_in_editor=tutorials/java/03-elementlevelxform-count/src/main/java/com/gcp/cookbook/CountPipeline.java&tutorial=docs/tutorials/03-elementlevelxform-count.md)</td>
+    <td><a href="docs/java/tutorials/03-elementlevelxform-count.md">documentation</a></td>
+    <td>
+        <a href="https://console.cloud.google.com/cloudshell/open?git_repo=https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/arunneoz/beamcookbook&page=editor&open_in_editor=tutorials/java/03-elementlevelxform-count/src/main/java/com/gcp/cookbook/CountPipeline.java&tutorial=docs/tutorials/03-elementlevelxform-count.md"><img src="https://gstatic.com/cloudssh/images/open-btn.png"/></a>
+    </td>
 </tr>
 </table>
 
