@@ -1,1 +1,10 @@
-theme: jekyll-theme-slate
+highlighter: rogue
+name: Apache Beam Cookbook
+Description: Tutorials and examples for Apache Beam and Google DataFlow
+url: https://arunneoz.github.io/beamcookbook/
+lsi: false
+
+exclude: [LICENSE,CNAME,Readme.md,.gitignore,Gemfile,Gemfile.lock]
+
+permalink: pretty
+theme: jekyll-theme-architect
