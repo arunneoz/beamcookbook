@@ -1,18 +1,21 @@
+[Home](../../index.md)
 # Getting Started Tutorial 
-[Home](/docs/index.md)
 
-**Lauch Cloud Shell Tutorial**
+
+**Launch this in Cloud Shell**
 ```bash
 cloudshell launch-tutorial docs/java/tutorials/getting_started.md
 ```
 
-## Setup Project
+**Open Project Folder**
 CD into tutorials folder
 ```bash
 cd tutorials/java/
 ```
 
-## Execute Maven
+## Generate Project Code
+For this we can use a Maven Archetype to generate a Starter Project with a simple pipeline ready to modify.
+
 ```bash
 mvn archetype:generate \
      -DarchetypeGroupId=org.apache.beam \
@@ -25,10 +28,12 @@ mvn archetype:generate \
      -DinteractiveMode=false
 ```
 
-## Understand Code
 ```bash
 cd getting-started/
 ```
+
+## Code Walkthrough
+
 ### Open 
 <walkthrough-editor-open-file 
 filePath="/beamcookbook/tutorials/java/getting-started/src/main/java/com/gcp/cookbook/StarterPipeline.java">StarterPipeline.java</walkthrough-editor-open-file>
