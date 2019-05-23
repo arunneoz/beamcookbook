@@ -1,5 +1,6 @@
 # Apache Beam Cookbook
 
+<a href="java/tutorials/custom_options.md">test link</a>
 
 ## Getting Started Tutorials
 <table class="toc">
