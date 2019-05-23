@@ -1,8 +1,8 @@
 # Apache Beam Cookbook
-tbd
 
-## Tutorials
-<table>
+
+## Getting Started Tutorials
+<table class="toc">
 <tr>
     <td>Tutorial</td>
     <td>Documentation</td>
@@ -22,6 +22,16 @@ tbd
         <a href="https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/arunneoz/beamcookbook&page=editor&open_in_editor=tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java&tutorial=docs/tutorials/custom_options.md"><img src="https://gstatic.com/cloudssh/images/open-btn.png"/></a>
     </td>
 </tr>
+</table>
+
+
+## Operators Tutorials
+<table class="toc">
+<tr>
+    <td>Tutorial</td>
+    <td>Documentation</td>
+    <td>Java Walkthrough</td>
+</tr>
 <tr>
     <td>Count Operations</td>
     <td><a href="docs/java/tutorials/03-elementlevelxform-count.md">documentation</a></td>
@@ -31,3 +41,34 @@ tbd
 </tr>
 </table>
 
+
+
+
+## Pipeline I/O Tutorials
+<table class="toc">
+<tr>
+    <td>Tutorial</td>
+    <td>Documentation</td>
+    <td>Java Walkthrough</td>
+</tr>
+<tr>
+    <td>TextIO Example</td>
+    <td>todo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>FileIO Example</td>
+    <td>todo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>FileIO Watcher Example</td>
+    <td>todo</td>
+    <td></td>
+</tr>
+<tr>
+    <td>CSV Example</td>
+    <td>todo</td>
+    <td></td>
+</tr>
+</table>
