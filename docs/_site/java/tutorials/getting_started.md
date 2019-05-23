@@ -1,6 +1,5 @@
 <walkthrough-author name="Mike Nimer" tutorialName="Getting Started" repositoryUrl="https://arunneoz.github.io/beamcookbook"></walkthrough-author>
 
-
 [Home](../../index.md)
 # Getting Started Tutorial 
 

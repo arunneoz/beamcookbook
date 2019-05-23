@@ -1,6 +1,5 @@
 # Apache Beam Cookbook
-
-[test link](java/tutorials/custom_options.md)
+tbd
 
 
 ## Getting Started Tutorials
@@ -8,7 +7,7 @@
 | Tutorial | Documentation | Java Walkthrough |
 |---	|:-:	|:-:	|
 | Getting Started | [Documentation](java/tutorials/getting_started.md) | [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/arunneoz/beamcookbook&tutorial=docs/java/tutorials/getting_started.md) |
-| Runtime Arguments | [Documentation](java/tutorials/custom_options.md) | [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)]() |
+| Runtime Arguments | [Documentation](java/tutorials/runtime_arguments.md) | [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/arunneoz/beamcookbook&tutorial=docs/java/tutorials/runtime_arguments.md) |
 
 
 ## Operators Tutorials
