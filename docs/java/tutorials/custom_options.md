@@ -1,3 +1,5 @@
+<walkthrough-author name="Mike Nimer" tutorialName="Getting Started" repositoryUrl="https://arunneoz.github.io/beamcookbook"></walkthrough-author>
+
 [Home](../../index.md)
 # Getting Started Tutorial
 
@@ -126,12 +128,12 @@ mvn compile exec:java \
 
 *Run with DataFlow*
 ```bash
-    export project=<project id>
+    export project={{ project-id }}
 ```
 ```bash
 mvn compile exec:java \
     -Dexec.mainClass=com.gcp.cookbook.StarterPipeline \
-    -Dexec.args="--runner=DataFlowRunner --project=$project"
+    -Dexec.args="--runner=DataFlowRunner --project={{ project-id }}"
 ```
 
 *Deploy Template*
@@ -145,3 +147,4 @@ mvn compile exec:java \
 ```
 
     
+
