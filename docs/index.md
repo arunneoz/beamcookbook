@@ -1,7 +1,5 @@
 # Apache Beam Cookbook
 
-[test link](java/tutorials/custom_options.md)
-
 
 ## Getting Started Tutorials
 
