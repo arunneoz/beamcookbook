@@ -41,10 +41,9 @@ cd getting-started/
 filePath="/beamcookbook/tutorials/java/getting-started/src/main/java/com/gcp/cookbook/StarterPipeline.java">StarterPipeline.java</walkthrough-editor-open-file>
 
 
-### Explain Pipeline
 To begin, let's look at the pipline main method. 
 - <walkthrough-editor-select-line
-filePath="/beamcookbook/java/tutorials/getting-started/src/main/java/com/gcp/cookbook/StarterPipeline.java"
+filePath="/beamcookbook/tutorials/java/getting-started/src/main/java/com/gcp/cookbook/StarterPipeline.java"
 startLine="49" startCharacterOffset="4" 
 endLine="51" endCharacterOffset="52">line 50</walkthrough-editor-select-line>
 Initializes the Pipeline
@@ -54,7 +53,7 @@ Initializes the Pipeline
 ```
  
 - <walkthrough-editor-select-line
-filePath="/beamcookbook/java/tutorials/getting-started/src/main/java/com/gcp/cookbook/StarterPipeline.java"
+filePath="/beamcookbook/tutorials/java/getting-started/src/main/java/com/gcp/cookbook/StarterPipeline.java"
 startLine="52" startCharacterOffset="4" 
 endLine="52" endCharacterOffset="80">line 53</walkthrough-editor-select-line>
 Populate the pipeline with a list of words
