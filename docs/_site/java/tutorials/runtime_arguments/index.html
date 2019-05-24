@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b8c1b0cb41541d620ddbd6af6b5ee2e0935cb5d8" media="screen" type="text/css">
+    <link rel="stylesheet" href="/assets/css/print.css" media="print" type="text/css">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Apache Beam Cookbook</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Apache Beam Cookbook" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/java/tutorials/runtime_arguments/" />
+<meta property="og:url" content="http://localhost:4000/java/tutorials/runtime_arguments/" />
+<meta property="og:site_name" content="Apache Beam Cookbook" />
+<script type="application/ld+json">
+{"headline":"Apache Beam Cookbook","@type":"WebPage","url":"http://localhost:4000/java/tutorials/runtime_arguments/","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <a href="http://localhost:4000/">
+          <h1>beamcookbook</h1>
+        </a>
+        <h2></h2>
+        
+          <a href="https://github.com/arunneoz/beamcookbook" class="button"><small>View project on</small> GitHub</a>
+        
+        
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <walkthrough-author name="Mike Nimer" tutorialName="Runtime Arguments" repositoryUrl="https://arunneoz.github.io/beamcookbook"></walkthrough-author>
+
+<p><a href="/">Home</a></p>
+<h1 id="runtime-arguments-tutorial">Runtime Arguments Tutorial</h1>
+
+<p>Often with DataFlow you will need to define custom inputs when you run the workflow. This example will define a custom option class that we will use to store the runtime variables we need while defining our pipeline.</p>
+
+<p><strong>Launch this in Cloud Shell</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cloudshell launch-tutorial docs/java/tutorials/custom_options.md
+</code></pre></div></div>
+
+<p><strong>Open Project Folder</strong>
+CD into tutorial folders</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>tutorials/java/custom-options
+</code></pre></div></div>
+
+<h2 id="code-walkthrough">Code Walkthrough</h2>
+
+<p><strong>AppOptions Class</strong></p>
+
+<p>This class has one runtime value, with a default. When you invoke the pipeline you will use this argument</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--minimumValue=5
+</code></pre></div></div>
+<p>Open <walkthrough-editor-open-file filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java">AppOptions.java</walkthrough-editor-open-file>
+<br /></p>
+
+<ul>
+  <li>
+    <walkthrough-editor-select-line filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java" startLine="8" startCharacterOffset="0" endLine="8" endCharacterOffset="80">line 9</walkthrough-editor-select-line>
+    <p>Description of the property</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@Description("Minimum Value") 
+</code></pre></div>    </div>
+    <p><br /></p>
+  </li>
+  <li>
+    <walkthrough-editor-select-line filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java" startLine="9" startCharacterOffset="0" endLine="9" endCharacterOffset="80">line 10</walkthrough-editor-select-line>
+    <p>Default value, if this is not set the property is required.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@Default.Integer(5) 
+</code></pre></div>    </div>
+    <p><br /></p>
+  </li>
+  <li>
+    <walkthrough-editor-select-line filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/AppOptions.java" startLine="10" startCharacterOffset="0" endLine="11" endCharacterOffset="80">line 11-12</walkthrough-editor-select-line>
+    <p>Getter and Setter methods for the property.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Integer getMinimumValue();
+void setMinimumValue(Integer value);
+</code></pre></div>    </div>
+    <p><br /></p>
+  </li>
+</ul>
+
+<p><strong>Pipeline Class</strong></p>
+
+<p>This class defines the Apache Beam pipeline DAG, it also contains the Java Main method.</p>
+
+<p>Open <walkthrough-editor-open-file filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java">StarterPipeline.java</walkthrough-editor-open-file></p>
+
+<ul>
+  <li>
+    <walkthrough-editor-select-line filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java" startLine="37" startCharacterOffset="0" endLine="38" endCharacterOffset="80">line 38-39:</walkthrough-editor-select-line>
+    <p>Initializes the Pipeline with our custom AppOptions class. Now we can use the getter methods as needed.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AppOptions appOptions = PipelineOptionsFactory.fromArgs(args).as(com.gcp.cookbook.AppOptions.class);
+Pipeline p = Pipeline.create(appOptions);
+</code></pre></div>    </div>
+    <p><br /></p>
+  </li>
+  <li>
+    <walkthrough-editor-select-line filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java" startLine="40" startCharacterOffset="0" endLine="40" endCharacterOffset="80">line 41:</walkthrough-editor-select-line>
+    <p>Populate the pipeline with a list of Integers, so we have some messages to send through the pipeline.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>p.apply(Create.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+</code></pre></div>    </div>
+    <p><br /></p>
+  </li>
+  <li>
+    <walkthrough-editor-select-line filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java" startLine="42" startCharacterOffset="0" endLine="42" endCharacterOffset="80">line 43:</walkthrough-editor-select-line>
+    <p>Filter out all numbers smaller then the filterPattern.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.apply(Filter.greaterThan(appOptions.getMinimumValue()))
+</code></pre></div>    </div>
+    <p><br /></p>
+  </li>
+  <li>
+    <walkthrough-editor-select-line filePath="/beamcookbook/tutorials/java/custom-options/src/main/java/com/gcp/cookbook/StarterPipeline.java" startLine="45" startCharacterOffset="0" endLine="50" endCharacterOffset="80">line 46-51:</walkthrough-editor-select-line>
+    <p>Log the integers that passed the filter.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.apply(ParDo.of(new DoFn&lt;Integer, Integer&gt;() {
+  @ProcessElement
+  public void processElement(ProcessContext c) {
+      LOG.info(c.element().toString());
+      //return the value
+      c.output(c.element());
+  }
+}));
+</code></pre></div>    </div>
+    <p><br /></p>
+  </li>
+</ul>
+
+<h2 id="run-pipeline">Run Pipeline</h2>
+
+<p><em>Run Locally</em></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn compile <span class="nb">exec</span>:java <span class="se">\</span>
+    <span class="nt">-Dexec</span>.mainClass<span class="o">=</span>com.gcp.cookbook.StarterPipeline <span class="se">\</span>
+    <span class="nt">-Dexec</span>.args<span class="o">=</span><span class="s2">"--runner=DirectRunner"</span>
+</code></pre></div></div>
+
+<p><em>Run with DataFlow</em></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nb">export </span><span class="nv">project</span><span class="o">=</span>&lt;project id&gt;
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn compile <span class="nb">exec</span>:java <span class="se">\</span>
+    <span class="nt">-Dexec</span>.mainClass<span class="o">=</span>com.gcp.cookbook.StarterPipeline <span class="se">\</span>
+    <span class="nt">-Dexec</span>.args<span class="o">=</span><span class="s2">"--runner=DataFlowRunner --project=</span><span class="k">${</span><span class="nv">project</span><span class="k">}</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p><em>Deploy Template</em></p>
+
+<p>To deploy a template we will need a GCS bucket that DataFlow can stage a file in. Create a GCS bucket with a “/staging” sub folder.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nb">export </span><span class="nv">project</span><span class="o">=</span>&lt;project id&gt;
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nb">export </span><span class="nv">bucket</span><span class="o">=</span>&lt;bucket&gt;
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn compile <span class="nb">exec</span>:java <span class="se">\</span>
+    <span class="nt">-Dexec</span>.mainClass<span class="o">=</span>com.gcp.cookbook.StarterPipeline <span class="se">\</span>
+    <span class="nt">-Dexec</span>.args<span class="o">=</span><span class="s2">"--runner=DataFlowRunner --project=</span><span class="k">${</span><span class="nv">project</span><span class="k">}</span><span class="s2"> --stagingLocation=gs://</span><span class="k">${</span><span class="nv">bucket</span><span class="k">}</span><span class="s2">/staging"</span>
+</code></pre></div></div>
+
+
+        </section>
+
+        <aside id="sidebar">
+          
+
+          
+            <p class="repo-owner"><a href="https://github.com/arunneoz/beamcookbook">beamcookbook</a> is maintained by <a href="https://github.com/arunneoz">arunneoz</a>.</p>
+          
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+    
+  </body>
+</html>
