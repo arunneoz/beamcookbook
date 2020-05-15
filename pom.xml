@@ -58,7 +58,7 @@
     <guava.version>20.0</guava.version>
     <json.version>20160810</json.version>
     <gson.version>2.7</gson.version>
-    <jackson.version>2.9.0</jackson.version>
+    <jackson.version>2.11.0</jackson.version>
     <commons-csv.version>1.5</commons-csv.version>
     <google.cloud.core>1.61.0</google.cloud.core>
     <grpc.version>1.13.1</grpc.version>
