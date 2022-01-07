@@ -53,7 +53,7 @@
     <bigtable.version>1.5.0</bigtable.version>
     <bigquery.version>v2-rev374-1.22.0</bigquery.version>
     <protobuf-util.version>3.6.1</protobuf-util.version>
-    <protobuf.version>3.6.0</protobuf.version>
+    <protobuf.version>3.16.1</protobuf.version>
     <findbugs.version>3.0.1</findbugs.version>
     <guava.version>20.0</guava.version>
     <json.version>20160810</json.version>
